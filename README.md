@@ -3,8 +3,6 @@
 [![English](https://img.shields.io/badge/Language-English-blue)](./README.md)
 [![日本語](https://img.shields.io/badge/言語-日本語-blue)](./README.ja.md)
 
-[![License](https://img.shields.io/github/license/ted-sharp/aloe-utils.svg)](LICENSE)
-
 `Aloe.Utils` is a hub repository for useful utility libraries.
 It also serves as a template for related repositories.
 

@@ -3,10 +3,8 @@
 [![English](https://img.shields.io/badge/Language-English-blue)](./README.md)
 [![日本語](https://img.shields.io/badge/言語-日本語-blue)](./README.ja.md)
 
-[![License](https://img.shields.io/github/license/ted-sharp/aloe-utils.svg)](LICENSE)
-
 `Aloe.Utils` は、便利なユーティリティライブラリのハブリポジトリです。
-関連リポジトリで使えるテンプレートを兼ねています。
+関連リポジトリで使うテンプレートを兼ねています。
 
 ## 関連リポジトリ
 
