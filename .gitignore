@@ -567,3 +567,6 @@ cache/
 *.mp3
 *.meta.json
 release/
+
+# Aloe.Utils junction directories
+aloe-utils-*/
