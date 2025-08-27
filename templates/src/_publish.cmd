@@ -17,7 +17,7 @@ dotnet build .\Aloe.Utils.Template\Aloe.Utils.Template.csproj -c Release
 
 rem Publish the application
 echo Building and publishing...
-dotnet publish .\Aloe.Utils.Template\Aloe.Utils.Template.csproj -c Release -r win-x64 -o .\publish\AloeUtilsTemplate
+dotnet publish .\Aloe.Utils.Template\Aloe.Utils.Template.csproj -c Release -o .\publish\AloeUtilsTemplate
 
 rem Create NuGet package
 echo Creating NuGet package...

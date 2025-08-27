@@ -27,7 +27,7 @@ This is a hub repository for Aloe.Utils utility libraries that serves as both a 
 dotnet build .\Aloe.Utils.Template\Aloe.Utils.Template.csproj -c Release
 
 # Publish application
-dotnet publish .\Aloe.Utils.Template\Aloe.Utils.Template.csproj -c Release -r win-x64 -o .\publish\AloeUtilsTemplate
+dotnet publish .\Aloe.Utils.Template\Aloe.Utils.Template.csproj -c Release -o .\publish\AloeUtilsTemplate
 
 # Create NuGet package
 dotnet pack .\Aloe.Utils.Template\Aloe.Utils.Template.csproj -c Release -o .\publish
