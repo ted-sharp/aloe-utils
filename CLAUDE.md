@@ -8,8 +8,8 @@ This is a hub repository for Aloe.Utils utility libraries that serves as both a 
 
 ## Project Architecture
 
-- **Hub Structure**: This repository links to 15+ separate utility libraries, each maintained in their own repositories
-- **Template Repository**: Serves as a template for creating new utility libraries in the Aloe.Utils ecosystem
+- **Hub Structure with Junction Links**: This repository contains junction links to 15+ separate utility libraries, each maintained in their own repositories but accessible locally through Windows junction symbolic links
+- **Template Repository**: Serves as a template for creating new utility libraries in the Aloe.Utils ecosystem  
 - **.NET 9.0 Target**: All utilities target .NET 9.0 and are published as NuGet packages
 - **Library Categories**:
   - Core utilities (CommandLine, Configuration, SafeIO)
@@ -17,6 +17,7 @@ This is a hub repository for Aloe.Utils utility libraries that serves as both a 
   - Drawing operations (Drawing, Drawing.Wpf)
   - Japanese language support (Wafu.* libraries)
   - Windows-specific utilities (Win32.ScCommand)
+- **Junction Management**: Use `create_junctions.cmd` and `remove_junctions.cmd` to manage symbolic links
 
 ## Development Commands
 
@@ -32,13 +33,34 @@ dotnet publish .\Aloe.Utils.Template\Aloe.Utils.Template.csproj -c Release -r wi
 dotnet pack .\Aloe.Utils.Template\Aloe.Utils.Template.csproj -c Release -o .\publish
 ```
 
-### Utility Scripts
+### Junction Management
+```cmd
+# Create junction links to all aloe-utils projects (requires admin privileges)
+create_junctions.cmd
+
+# Remove junction links
+remove_junctions.cmd
+```
+
+### Utility Scripts (from individual project src directories)
 ```bash
-# Clean build artifacts and temporary files (from src directory)
+# Clean build artifacts and temporary files
 .\_clean_workdirs.cmd
 
-# Build, publish, and package (from src directory) 
+# Build, publish, and package
 .\_publish.cmd
+```
+
+### Working with Individual Projects
+```bash
+# Navigate to a specific project via junction link
+cd aloe-utils-commandline\src
+
+# Build a specific project
+dotnet build .\Aloe.Utils.CommandLine\Aloe.Utils.CommandLine.csproj -c Release
+
+# Run tests for a specific project
+dotnet test .\Aloe.Utils.CommandLine.Tests\Aloe.Utils.CommandLine.Tests.csproj
 ```
 
 ## Code Standards
@@ -72,4 +94,18 @@ The project uses structured documentation in `.cursor/rules/` directory for main
 
 ## Repository Structure
 
-Each utility library follows a consistent structure with separate repositories linked from the main README. When working with a specific utility, check if it exists as a separate repository or if it's being developed as part of the template structure in `src/`.
+- **Root Directory**: Contains junction links to all aloe-utils projects for unified access
+- **Junction Links**: Each `aloe-utils-*` directory is a Windows junction pointing to `../aloe-utils-*`
+- **Individual Projects**: Each utility maintains its own repository structure with `src/`, tests, and documentation
+- **Consistent Structure**: All projects follow the pattern:
+  - `src/ProjectName/` - Main library code
+  - `src/ProjectName.Tests/` - Unit tests  
+  - `src/ProjectName.Samples/` - Usage examples
+  - Standard build scripts (`_clean_workdirs.cmd`, `_publish.cmd`)
+
+## Slash Commands
+
+Custom slash commands are available in `.claude/commands/`:
+- `/basic-template` - Simple command template
+- `/advanced-template` - Complex command with tool permissions
+- See `.claude/commands/README.md` for detailed usage
